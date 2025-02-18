@@ -1,7 +1,11 @@
-namespace Joguinho_Xadrez;
-
-public class Cavalo : Peças
+public class Cavalo : Peca
 {
-    public Cavalo(string cor, int x, int y) : base(cor, x, y) {}
-    public override bool VerificarMovimentacao() { return true; }
+    public Cavalo(EnumCor cor, int linha, int coluna) : base(cor, linha, coluna) { }
+
+    public override bool MovimentoValido(int novaLinha, int novaColuna)
+    {
+        int diffLinha = Math.Abs(novaLinha - Linha);
+        int diffColuna = Math.Abs(novaColuna - Coluna);
+        return (diffLinha == 2 && diffColuna == 1) || (diffLinha == 1 && diffColuna == 2);
+    }
 }

@@ -1,7 +1,9 @@
-namespace Joguinho_Xadrez;
-
-public class Torre : Peças
+public class Torre : Peca
 {
-    public Torre(string cor, int x, int y) : base(cor, x, y) {}
-    public override bool VerificarMovimentacao() { return true; }
+    public Torre(EnumCor cor, int linha, int coluna) : base(cor, linha, coluna) { }
+
+    public override bool MovimentoValido(int novaLinha, int novaColuna)
+    {
+        return (Linha == novaLinha || Coluna == novaColuna);
+    }
 }

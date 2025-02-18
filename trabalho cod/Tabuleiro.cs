@@ -18,7 +18,7 @@ public class Tabuleiro
         Peças[7, 7] = new Torre("branco", 7, 7);
     }
 }
-*/
+
 
 using System;
 
@@ -37,12 +37,12 @@ public class Tabuleiro
     public Tabuleiro()
     {
         Pecas = new Peças[8, 8];
-        Rainhas = new Rainha[2]; // uma preta e outra branca;
-        cavalos = new Cavalo[4]; // dois black e dois white;
-        reis = new Rei[2]; // um black e um white;
-        torres = new Torre[4]; // dois pretos e dois white;
-        bispos = new Bispo[4]; // dois black e dois white.
-        peaos = new Peao[16]; // 8 peões do time black e 8 peões do time white
+        Rainhas = new Rainha[2];
+        cavalos = new Cavalo[4];
+        reis = new Rei[2]; 
+        torres = new Torre[4]; 
+        bispos = new Bispo[4]; 
+        peaos = new Peao[16]; 
 
 
         InicializarTabuleiro();
@@ -51,75 +51,71 @@ public class Tabuleiro
 
     private void InicializarTabuleiro()
     {
-        // peças time black
-        Pecas[1, 1] = new Torre("preto", 1, 1); // torre black
-        Pecas[1, 2] = new Cavalo("black", 1, 2); // cavalo black
-        Pecas[1, 3] = new Bispo("preto", 1, 3); // bispo black
-        Pecas[1, 4] = new Rainha("black", 1, 4); //rainha black
-        Pecas[1, 5] = new Rei("preto", 1, 5); // rei black
-        Pecas[1, 6] = new Bispo("preto", 1, 6); // bispo balck
-        Pecas[1, 7] = new Cavalo("black", 1, 7); // cavalo black
-        Pecas[1, 8] = new Torre("preto", 1, 8); // torre black
+        Pecas[1, 1] = new Torre("preto", 1, 1); 
+        Pecas[1, 2] = new Cavalo("black", 1, 2); 
+        Pecas[1, 3] = new Bispo("preto", 1, 3);
+        Pecas[1, 4] = new Rainha("black", 1, 4); 
+        Pecas[1, 5] = new Rei("preto", 1, 5); 
+        Pecas[1, 6] = new Bispo("preto", 1, 6); 
+        Pecas[1, 7] = new Cavalo("black", 1, 7); 
+        Pecas[1, 8] = new Torre("preto", 1, 8);
 
 
-        // peões black (linha 1)
         for (int i = 2; i < 9; i++)
         {
-            Pecas[2, i] = new Peao("black", 2, i); // Peões black
+            Pecas[2, i] = new Peao("black", 2, i); 
         }
 
 
-        // peças time white
-        Pecas[8, 1] = new Torre("white", 8, 1); // Torre branca
-        Pecas[8, 2] = new Cavalo("white", 8, 2); // Cavalo branco
-        Pecas[8, 3] = new Bispo("white", 8, 3); // Bispo branco
-        Pecas[8, 4] = new Rainha("white", 8, 4); // Rainha branca
-        Pecas[8, 5] = new Rei("white", 8, 5); // Rei branco
-        Pecas[8, 6] = new Bispo("white", 8, 6); // Bispo branco
-        Pecas[8, 7] = new Cavalo("white", 8, 7); // Cavalo branco
-        Pecas[8, 8] = new Torre("white", 8, 8); // Torre branca
+
+        Pecas[8, 1] = new Torre("white", 8, 1); 
+        Pecas[8, 2] = new Cavalo("white", 8, 2); 
+        Pecas[8, 3] = new Bispo("white", 8, 3); 
+        Pecas[8, 4] = new Rainha("white", 8, 4);
+        Pecas[8, 5] = new Rei("white", 8, 5); 
+        Pecas[8, 6] = new Bispo("white", 8, 6); 
+        Pecas[8, 7] = new Cavalo("white", 8, 7);
+        Pecas[8, 8] = new Torre("white", 8, 8); 
 
 
-        // peões white (linha 6)
+        
         for (int i = 7; i < 9; i++)
         {
-            Pecas[7, i] = new Peao("white", 7, i); // Peões brancos
+            Pecas[7, i] = new Peao("white", 7, i); 
         }
 
 
-        // Inicializando as rainhas após a criação das peças no tabuleiro
-        Rainhas[1] = new Rainha("black", 1, 4); // Rainha preta
-        Rainhas[2] = new Rainha("branco", 8, 4); // Rainha branca
+       
+        Rainhas[1] = new Rainha("black", 1, 4); 
+        Rainhas[2] = new Rainha("branco", 8, 4); 
 
 
-        // Inicializando os reis
-        reis[1] = new Rei("preto", 1, 5); // Rei preto
-        reis[2] = new Rei("white", 8, 5); // Rei branco
+        reis[1] = new Rei("preto", 1, 5);
+        reis[2] = new Rei("white", 8, 5);
 
 
-        // Inicializando as torres
-        torres[1] = new Torre("black", 1, 1); // Torre preta
-        torres[2] = new Torre("preto", 1, 8); // Torre preta
-        torres[3] = new Torre("white", 8, 1); // Torre branca
-        torres[4] = new Torre("branco", 8, 8); // Torre branca
+        torres[1] = new Torre("black", 1, 1); 
+        torres[2] = new Torre("preto", 1, 8); 
+        torres[3] = new Torre("white", 8, 1); 
+        torres[4] = new Torre("branco", 8, 8);
 
 
-        // Inicializando os cavalos
-        cavalos[1] = new Cavalo("preto", 1, 2); // Cavalo preto
-        cavalos[2] = new Cavalo("black", 1, 7); // Cavalo preto
-        cavalos[3] = new Cavalo("white", 8, 2); // Cavalo branco
-        cavalos[4] = new Cavalo("branca", 8, 7); // Cavalo branco
+        
+        cavalos[1] = new Cavalo("preto", 1, 2); 
+        cavalos[2] = new Cavalo("black", 1, 7); 
+        cavalos[3] = new Cavalo("white", 8, 2); 
+        cavalos[4] = new Cavalo("branca", 8, 7); 
 
 
-        // Inicializando os bispos
-        bispos[1] = new Bispo("black", 1, 3); // Bispo preto
-        bispos[2] = new Bispo("preto", 1, 6); // Bispo preto
-        bispos[3] = new Bispo("white", 8, 3); // Bispo branco
-        bispos[4] = new Bispo("branca", 8, 6); // Bispo branco
+    
+        bispos[1] = new Bispo("black", 1, 3); 
+        bispos[2] = new Bispo("preto", 1, 6);
+        bispos[3] = new Bispo("white", 8, 3); 
+        bispos[4] = new Bispo("branca", 8, 6); 
     }
 }
 
-
+/*
 
 namespace Joguinho_Xadrez;
 
@@ -297,4 +293,72 @@ partial class Form1
         this.Controls.Add(peao);  
     }
     #endregion
+}
+*/
+
+public class Tabuleiro
+{
+    public Peca[,] Pecas { get; private set; } // Matriz 8x8 para armazenar as peças
+
+    public Tabuleiro()
+    {
+        Pecas = new Peca[8, 8];
+        InicializarTabuleiro();
+    }
+
+    private void InicializarTabuleiro()
+    {
+        // Posicionando as torres
+        Pecas[0, 0] = new Torre(EnumCor.Branco, 0, 0);
+        Pecas[0, 7] = new Torre(EnumCor.Branco, 0, 7);
+        Pecas[7, 0] = new Torre(EnumCor.Preto, 7, 0);
+        Pecas[7, 7] = new Torre(EnumCor.Preto, 7, 7);
+
+        // Posicionando os bispos
+        Pecas[0, 2] = new Bispo(EnumCor.Branco, 0, 2);
+        Pecas[0, 5] = new Bispo(EnumCor.Branco, 0, 5);
+        Pecas[7, 2] = new Bispo(EnumCor.Preto, 7, 2);
+        Pecas[7, 5] = new Bispo(EnumCor.Preto, 7, 5);
+
+        // Posicionando os cavalos
+        Pecas[0, 1] = new Cavalo(EnumCor.Branco, 0, 1);
+        Pecas[0, 6] = new Cavalo(EnumCor.Branco, 0, 6);
+        Pecas[7, 1] = new Cavalo(EnumCor.Preto, 7, 1);
+        Pecas[7, 6] = new Cavalo(EnumCor.Preto, 7, 6);
+
+        // Posicionando a rainha
+        Pecas[0, 3] = new Rainha(EnumCor.Branco, 0, 3);
+        Pecas[7, 3] = new Rainha(EnumCor.Preto, 7, 3);
+
+        // Posicionando o rei
+        Pecas[0, 4] = new Rei(EnumCor.Branco, 0, 4);
+        Pecas[7, 4] = new Rei(EnumCor.Preto, 7, 4);
+
+        // Posicionando os peões
+        for (int i = 0; i < 8; i++)
+        {
+            Pecas[1, i] = new Peao(EnumCor.Branco, 1, i);
+            Pecas[6, i] = new Peao(EnumCor.Preto, 6, i);
+        }
+    }
+
+    public Peca ObterPeca(int linha, int coluna)
+    {
+        return Pecas[linha, coluna];
+    }
+
+    public bool MoverPeca(int linhaOrigem, int colunaOrigem, int linhaDestino, int colunaDestino)
+    {
+        Peca peca = Pecas[linhaOrigem, colunaOrigem];
+
+        if (peca == null || !peca.MovimentoValido(linhaDestino, colunaDestino))
+            return false; // Movimento inválido
+
+        Pecas[linhaDestino, colunaDestino] = peca;
+        Pecas[linhaOrigem, colunaOrigem] = null;
+        peca.Linha = linhaDestino;
+        peca.Coluna = colunaDestino;
+
+        return true; // Movimento bem-sucedido
+    }
 }
