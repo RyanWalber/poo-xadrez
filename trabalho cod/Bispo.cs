@@ -1,14 +1,10 @@
-using System;
+public class Bispo : Peca
+{
+    public Bispo(string cor, int x, int y)
+        : base(cor, x, y, Image.FromFile($"Resources/{cor}_bispo.png")) {}
 
-
-public class Bispo : Peças{
-
-
-public Bispo(string cor, int x, int y) : base(cor, x, y){}
-
-
-    public override bool VerificarMovimentacao()
+    public override bool VerificarMovimentacao(int novoX, int novoY)
     {
-        throw new NotImplementedException();
+        return Math.Abs(novoX - X) == Math.Abs(novoY - Y);
     }
 }

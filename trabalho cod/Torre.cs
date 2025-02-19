@@ -1,14 +1,10 @@
-using System;
+public class Torre : Peca
+{
+    public Torre(string cor, int x, int y)
+        : base(cor, x, y, Image.FromFile($"Resources/{cor}_torre.png")) {}
 
-
-public class Torre : Peças{
-
-
-public Torre(string cor, int x, int y) : base(cor, x, y){}
-
-
-    public override bool VerificarMovimentacao()
+    public override bool VerificarMovimentacao(int novoX, int novoY)
     {
-        throw new NotImplementedException();
+        return (novoX == X || novoY == Y);
     }
 }

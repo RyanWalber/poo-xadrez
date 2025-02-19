@@ -1,14 +1,10 @@
-using System;
+public class Rei : Peca
+{
+    public Rei(string cor, int x, int y)
+        : base(cor, x, y, Image.FromFile($"Resources/{cor}_rei.png")) {}
 
-
-public class Rei : Peças{
-
-
-public Rei(string cor, int x, int y) : base(cor, x, y){}
-
-
-    public override bool VerificarMovimentacao()
+    public override bool VerificarMovimentacao(int novoX, int novoY)
     {
-        throw new NotImplementedException();
+        return Math.Abs(novoX - X) <= 1 && Math.Abs(novoY - Y) <= 1;
     }
 }
