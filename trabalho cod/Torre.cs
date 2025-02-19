@@ -1,9 +1,14 @@
-public class Torre : Peca
-{
-    public Torre(EnumCor cor, int linha, int coluna) : base(cor, linha, coluna) { }
+using System;
 
-    public override bool MovimentoValido(int novaLinha, int novaColuna)
+
+public class Torre : Peças{
+
+
+public Torre(string cor, int x, int y) : base(cor, x, y){}
+
+
+    public override bool VerificarMovimentacao()
     {
-        return (Linha == novaLinha || Coluna == novaColuna);
+        throw new NotImplementedException();
     }
 }

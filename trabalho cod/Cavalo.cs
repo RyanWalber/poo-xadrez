@@ -1,11 +1,14 @@
-public class Cavalo : Peca
-{
-    public Cavalo(EnumCor cor, int linha, int coluna) : base(cor, linha, coluna) { }
+using System;
 
-    public override bool MovimentoValido(int novaLinha, int novaColuna)
+
+public class Cavalo : Peças{
+
+
+public Cavalo(string cor, int x, int y) : base(cor, x, y){}
+
+
+    public override bool VerificarMovimentacao()
     {
-        int diffLinha = Math.Abs(novaLinha - Linha);
-        int diffColuna = Math.Abs(novaColuna - Coluna);
-        return (diffLinha == 2 && diffColuna == 1) || (diffLinha == 1 && diffColuna == 2);
+        throw new NotImplementedException();
     }
 }
