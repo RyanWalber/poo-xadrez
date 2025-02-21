@@ -1,21 +1,27 @@
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
-public abstract class Peca
-{
-    public string Cor { get; set; }
-    public int X { get; set; }
-    public int Y { get; set; }
-    public Image Imagem { get; set; }
+public abstract class Peca{
+    public int x, y;
+    public string img = "";
+    public PictureBox pictureBox = new PictureBox();
+    public Peca(int x, int y, string img){
+        
+        this.x = x/50;
+        this.y = y/50;
 
-    public Peca(string cor, int x, int y, Image imagem)
-    {
-        this.Cor = cor;
-        this.X = x;
-        this.Y = y;
-        this.Imagem = imagem;
+        pictureBox.Location = new Point(x , y);
+        pictureBox.Size = new Size(50, 50); // O Tamanho é fixo
+        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+        
+        try{
+            this.img = Path.Combine(Application.StartupPath, "imagens", img);
+             pictureBox.Image = Image.FromFile(this.img); 
+             
+        }catch (Exception ex){
+            MessageBox.Show("Erro ao carregar imagem: " + ex.Message);  
+        }
+
     }
+    public abstract bool validarMovimento(int destinoX, int destinoY);
 
-    public abstract bool VerificarMovimentacao(int novoX, int novoY);
 }

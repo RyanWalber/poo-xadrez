@@ -1,52 +1,58 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
+﻿namespace xadrez;
 
-namespace JogoDeXadrez
+partial class Form1
 {
-    public partial class Form1 : Form
+    
+    private System.ComponentModel.IContainer components = null;
+
+    
+    protected override void Dispose(bool disposing)
     {
-        private const int Tamanho = 8;
-        private Button[,] botoes = new Button[Tamanho, Tamanho];
-        private Tabuleiro tabuleiro;
-
-        public Form1()
+        if (disposing && (components != null))
         {
-            InitializeComponent();
-            CriarTabuleiro();
+            components.Dispose();
         }
-
-        private void CriarTabuleiro()
-        {
-            tabuleiro = new Tabuleiro();
-            for (int linha = 0; linha < Tamanho; linha++)
-            {
-                for (int coluna = 0; coluna < Tamanho; coluna++)
-                {
-                    Button botao = new Button();
-                    botao.Size = new Size(50, 50);
-                    botao.Location = new Point(50 * coluna, 50 * linha);
-                    botao.BackColor = (linha + coluna) % 2 == 0 ? Color.White : Color.Gray;
-
-                    // Verifica se há uma peça nessa posição
-                    if (tabuleiro.Pecas[linha, coluna] != null)
-                    {
-                        botao.Image = tabuleiro.Pecas[linha, coluna].Imagem;
-                        botao.Tag = tabuleiro.Pecas[linha, coluna]; // Associa a peça ao botão
-                    }
-
-                    int x = linha, y = coluna;
-                    botao.Click += (sender, args) => MoverPeca(x, y);
-
-                    botoes[linha, coluna] = botao;
-                    this.Controls.Add(botao);
-                }
-            }
-        }
-
-        private void MoverPeca(int x, int y)
-        {
-            MessageBox.Show($"Clique em {x}, {y}");
-        }
+        base.Dispose(disposing);
     }
+
+    #region Windows Form Designer generated code
+
+    
+    private void InitializeComponent()
+    {
+        this.components = new System.ComponentModel.Container();
+        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        this.ClientSize = new System.Drawing.Size(450, 450);
+        this.Text = "Xadrez";
+
+        InicializarTabuleiro();
+        
+        
+    }
+
+    public void InicializarTabuleiro()
+    {
+        for(int i = 2; i < 6 ;i++){
+            for(int j = 0; j<8 ;j++){
+                int x = j, y = i;
+                 tabuleiro[x,y] = new CasaVazia(x*50, y*50,"casaVazia.png");
+                 this.Controls.Add(tabuleiro[x,y].pictureBox);
+                 tabuleiro[x,y].pictureBox.BringToFront();
+                 tabuleiro[x,y].pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(tabuleiro[x,y]); };
+            }   
+        }
+        Rei reiBranco = new Rei(100,150,"rei.png");
+        tabuleiro[reiBranco.x,reiBranco.y] = reiBranco;
+        this.Controls.Add(reiBranco.pictureBox);
+        reiBranco.pictureBox.BringToFront();
+        reiBranco.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(reiBranco); };
+
+        Rei reiPreto = new Rei(100,100,"reiPreto.png");
+        tabuleiro[reiPreto.x,reiPreto.y] = reiPreto;
+        this.Controls.Add(reiPreto.pictureBox);
+        reiPreto.pictureBox.BringToFront();
+        reiPreto.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(reiPreto); };             
+    }
+     #endregion
 }
+

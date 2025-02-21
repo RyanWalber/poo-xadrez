@@ -1,10 +1,15 @@
-public class Rainha : Peca
-{
-    public Rainha(string cor, int x, int y)
-        : base(cor, x, y, Image.FromFile($"Resources/{cor}_rainha.png")) {}
-
-    public override bool VerificarMovimentacao(int novoX, int novoY)
-    {
-        return (novoX == X || novoY == Y) || (Math.Abs(novoX - X) == Math.Abs(novoY - Y));
+public class Rainha : Peca{
+    public Rainha(int x, int y, string img) : base( x, y,  img){
+        
     }
+    public override bool validarMovimento(int destinoX, int destinoY)
+    {
+        // Calcula a diferença entre as posições
+        int difX = Math.Abs(destinoX - x);
+        int difY = Math.Abs(destinoY - y);
+
+        // O Rei pode se mover apenas uma casa em qualquer direção
+        return difX <= 1 && difY <= 1;
+    }
+
 }
