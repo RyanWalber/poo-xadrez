@@ -1,15 +1,7 @@
-public class Torre : Peca{
-    public Torre(int x, int y, string img) : base( x, y,  img){
-        
-    }
-    public override bool validarMovimento(int destinoX, int destinoY)
-    {
-        // Calcula a diferença entre as posições
-        int difX = Math.Abs(destinoX - x);
-        int difY = Math.Abs(destinoY - y);
+public class Torre : Peca {
+    public Torre(int x, int y, string img) : base(x, y, img) { }
 
-        // O Rei pode se mover apenas uma casa em qualquer direção
-        return difX <= 1 && difY <= 1;
+    public override bool validarMovimento(int destinoX, int destinoY) {
+        return x == destinoX || y == destinoY;
     }
-
 }

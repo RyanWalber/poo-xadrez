@@ -1,15 +1,21 @@
-public class Peao : Peca{
-    public Peao(int x, int y, string img) : base( x, y,  img){
-        
-    }
-    public override bool validarMovimento(int destinoX, int destinoY)
-    {
-        // Calcula a diferença entre as posições
-        int difX = Math.Abs(destinoX - x);
-        int difY = Math.Abs(destinoY - y);
+public class Peao : Peca {
+    private bool primeiroMovimento = true;
+    private bool ehBranco;
 
-        // O Rei pode se mover apenas uma casa em qualquer direção
-        return difX <= 1 && difY <= 1;
+    public Peao(int x, int y, string img, bool ehBranco) : base(x, y, img) {
+        this.ehBranco = ehBranco;
     }
 
+    public override bool validarMovimento(int destinoX, int destinoY) {
+        int direcao = ehBranco ? -1 : 1;
+        if (destinoX == x && destinoY == y + direcao) {
+            primeiroMovimento = false;
+            return true;
+        }
+        if (primeiroMovimento && destinoX == x && destinoY == y + (2 * direcao)) {
+            primeiroMovimento = false;
+            return true;
+        }
+        return false;
+    }
 }

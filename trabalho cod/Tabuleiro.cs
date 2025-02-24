@@ -1,80 +1,69 @@
-/*using System;
-
 public class Tabuleiro
 {
-    public Peca[,] Pecas { get; private set; }
+    public static int sizeOfTabuleiro = 8;
+    public Peca[,] tabuleiro = new Peca[sizeOfTabuleiro, sizeOfTabuleiro];
 
     public Tabuleiro()
     {
-        Pecas = new Peca[8, 8];
         InicializarTabuleiro();
     }
 
-    private void InicializarTabuleiro()
+    public void InicializarTabuleiro()
     {
-        // Posicionando Peões
-        for (int coluna = 0; coluna < 8; coluna++)
+        // Colocar Peões
+        for (int i = 0; i < 8; i++)
         {
-            Pecas[1, coluna] = new Peao("preto", 1, coluna);
-            Pecas[6, coluna] = new Peao("branco", 6, coluna);
+            tabuleiro[i, 1] = new Peao(i * 50, 1 * 50, "peaobranco.png", true);
+            tabuleiro[i, 6] = new Peao(i * 50, 6 * 50, "peaopreto.png", false);
         }
 
-        // Posicionando Torres
-        Pecas[0, 0] = new Torre("preto", 0, 0);
-        Pecas[0, 7] = new Torre("preto", 0, 7);
-        Pecas[7, 0] = new Torre("branco", 7, 0);
-        Pecas[7, 7] = new Torre("branco", 7, 7);
+        // Colocar Torres
+        tabuleiro[0, 0] = new Torre(0, 0, "torrebranca.png");
+        tabuleiro[7, 0] = new Torre(7 * 50, 0, "torrebranca.png");
+        tabuleiro[0, 7] = new Torre(0, 7 * 50, "torrepreta.png");
+        tabuleiro[7, 7] = new Torre(7 * 50, 7 * 50, "torrepreta.png");
 
-        // Posicionando Cavalos
-        Pecas[0, 1] = new Cavalo("preto", 0, 1);
-        Pecas[0, 6] = new Cavalo("preto", 0, 6);
-        Pecas[7, 1] = new Cavalo("branco", 7, 1);
-        Pecas[7, 6] = new Cavalo("branco", 7, 6);
+        // Colocar Cavalos
+        tabuleiro[1, 0] = new Cavalo(1 * 50, 0, "cavalobranco.png");
+        tabuleiro[6, 0] = new Cavalo(6 * 50, 0, "cavalobranco.png");
+        tabuleiro[1, 7] = new Cavalo(1 * 50, 7 * 50, "cavalopreto.png");
+        tabuleiro[6, 7] = new Cavalo(6 * 50, 7 * 50, "cavalopreto.png");
 
-        // Posicionando Bispos
-        Pecas[0, 2] = new Bispo("preto", 0, 2);
-        Pecas[0, 5] = new Bispo("preto", 0, 5);
-        Pecas[7, 2] = new Bispo("branco", 7, 2);
-        Pecas[7, 5] = new Bispo("branco", 7, 5);
+        // Colocar Bispos
+        tabuleiro[2, 0] = new Bispo(2 * 50, 0, "bispobranco.png");
+        tabuleiro[5, 0] = new Bispo(5 * 50, 0, "bispobranco.png");
+        tabuleiro[2, 7] = new Bispo(2 * 50, 7 * 50, "bispopreto.png");
+        tabuleiro[5, 7] = new Bispo(5 * 50, 7 * 50, "bispopreto.png");
 
-        // Posicionando Rainhas
-        Pecas[0, 3] = new Rainha("preto", 0, 3);
-        Pecas[7, 3] = new Rainha("branco", 7, 3);
+        // Colocar Rainhas
+        tabuleiro[3, 0] = new Rainha(3 * 50, 0, "rainhabranca.png");
+        tabuleiro[3, 7] = new Rainha(3 * 50, 7 * 50, "rainhapreta.png");
 
-        // Posicionando Reis
-        Pecas[0, 4] = new Rei("preto", 0, 4);
-        Pecas[7, 4] = new Rei("branco", 7, 4);
-    }
+        // Colocar Reis
+        tabuleiro[4, 0] = new Rei(4 * 50, 0, "reibranco.png");
+        tabuleiro[4, 7] = new Rei(4 * 50, 7 * 50, "reipreto.png");
 
-    public bool MoverPeca(int origemX, int origemY, int destinoX, int destinoY)
+        // Preencher casas vazias
+        /*for (int linha = 0; linha < 8; linha++)
+{
+    for (int coluna = 0; coluna < 8; coluna++)
     {
-        Peca peca = Pecas[origemX, origemY];
+        PictureBox casa = new PictureBox();
+        casa.Size = new Size(60, 60);
+        casa.Location = new Point(coluna * 60, linha * 60);
+        casa.BackColor = (linha + coluna) % 2 == 0 ? Color.White : Color.Gray; // Alternância de cores
+        casa.BorderStyle = BorderStyle.FixedSingle;
 
-        if (peca == null)
-        {
-            Console.WriteLine("Nenhuma peça na posição de origem.");
-            return false;
-        }
-
-        if (!peca.VerificarMovimentacao(destinoX, destinoY))
-        {
-            Console.WriteLine("Movimento inválido para essa peça.");
-            return false;
-        }
-
-        if (Pecas[destinoX, destinoY] != null && Pecas[destinoX, destinoY].Cor == peca.Cor)
-        {
-            Console.WriteLine("Você não pode capturar sua própria peça.");
-            return false;
-        }
-
-        // Movimento válido, executa a jogada
-        Pecas[origemX, origemY] = null;
-        Pecas[destinoX, destinoY] = peca;
-        peca.X = destinoX;
-        peca.Y = destinoY;
-
-        return true;
+        this.Controls.Add(casa);
     }
 }
 */
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 2; j < 6; j++)
+            {
+                tabuleiro[i, j] = new CasaVazia(i * 50, j * 50, "casavazia.png");
+            }
+        }
+    }
+}
