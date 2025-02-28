@@ -103,6 +103,12 @@ partial class Form1
         this.Controls.Add(cavaloPreto.pictureBox);
         cavaloPreto.pictureBox.BringToFront();
         cavaloPreto.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(cavaloPreto); };
+
+        Torre torrePreta = new Torre(350,50,"torrepreta.png");
+        tabuleiro[torrePreta.x,torrePreta.y] = torrePreta;
+        this.Controls.Add(torrePreta.pictureBox);
+        torrePreta.pictureBox.BringToFront();
+        torrePreta.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(torrePreta); };
     }
      #endregion
 }
