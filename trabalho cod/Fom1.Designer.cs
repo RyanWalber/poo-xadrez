@@ -36,6 +36,7 @@ partial class Form1
 
     public void InicializarTabuleiro()
     {
+        
         for(int i = 1; i < 8 ;i++){
             for(int j = 0; j<8 ;j++){
                 int x = j, y = i;
@@ -45,6 +46,10 @@ partial class Form1
                  tabuleiro[x,y].pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(tabuleiro[x,y]); };
             }   
         }
+       
+
+
+        // Reis e Rainhas
         Rei reiBranco = new Rei(150,350,"reibranco.png");
         tabuleiro[reiBranco.x,reiBranco.y] = reiBranco;
         this.Controls.Add(reiBranco.pictureBox);
@@ -111,5 +116,5 @@ partial class Form1
         torrePreta.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(torrePreta); };
     }
      #endregion
-}
 
+}
