@@ -179,13 +179,13 @@ partial class Form1
         torrePreta2.pictureBox.BringToFront();
         torrePreta2.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(torrePreta2); };
      // peos 
-     
+     /*
         Peao peaoBranco1 = new Peao(0,50,"peaobranco.png");
         tabuleiro[peaoBranco1.x,peaoBranco1.y] = peaoBranco1;
         this.Controls.Add(peaoBranco1.pictureBox);
         peaoBranco1.pictureBox.BringToFront();
         peaoBranco1.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco1); };
-        
+        */
     }
      #endregion
 
