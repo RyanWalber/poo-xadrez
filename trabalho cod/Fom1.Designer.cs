@@ -37,7 +37,7 @@ partial class Form1
     public void InicializarTabuleiro()
     {
         
-        for(int i = 1; i < 8 ;i++){
+        for(int i = 0; i < 8 ;i++){
             for(int j = 0; j<8 ;j++){
                 int x = j, y = i;
                  tabuleiro[x,y] = new CasaVazia(x*50, y*50,"casaVazia.png");
@@ -47,6 +47,34 @@ partial class Form1
             }   
         }
        
+/*
+       public void InicializarTabuleiro()
+{
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0; j < 8; j++)
+        {
+            int x = j, y = i;
+            tabuleiro[x, y] = new CasaVazia(x * 50, y * 50, "");
+
+            // Definindo cor alternada para as casas
+            if ((x + y) % 2 == 0)
+            {
+                tabuleiro[x, y].pictureBox.BackColor = Color.Green; // Casas verdes
+            }
+            else
+            {
+                tabuleiro[x, y].pictureBox.BackColor = Color.Red; // Casas vermelhas
+            }
+
+            this.Controls.Add(tabuleiro[x, y].pictureBox);
+            tabuleiro[x, y].pictureBox.BringToFront();
+            tabuleiro[x, y].pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(tabuleiro[x, y]); };
+        }
+    }
+} // <- Aqui estava faltando a chave
+
+*/
 
 
         // Reis e Rainhas
@@ -56,7 +84,7 @@ partial class Form1
         reiBranco.pictureBox.BringToFront();
         reiBranco.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(reiBranco); };
 
-        Rei reiPreto = new Rei(150,50,"reipreto.png");
+        Rei reiPreto = new Rei(150,0,"reipreto.png");
         tabuleiro[reiPreto.x,reiPreto.y] = reiPreto;
         this.Controls.Add(reiPreto.pictureBox);
         reiPreto.pictureBox.BringToFront();
@@ -68,7 +96,7 @@ partial class Form1
         rainhaBranca.pictureBox.BringToFront();
         rainhaBranca.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(rainhaBranca); };   
 
-        Rainha rainhaPreta = new Rainha(202,50,"rainhapreta.png");
+        Rainha rainhaPreta = new Rainha(202,0,"rainhapreta.png");
         tabuleiro[rainhaPreta.x,rainhaPreta.y] = rainhaPreta;
         this.Controls.Add(rainhaPreta.pictureBox);
         rainhaPreta.pictureBox.BringToFront();
@@ -91,29 +119,73 @@ partial class Form1
         this.Controls.Add(torreBranca.pictureBox);
         torreBranca.pictureBox.BringToFront();
         torreBranca.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(torreBranca); };
+
+        Bispo bispoBranco2 = new Bispo(100,350,"bispobranco.png");
+        tabuleiro[bispoBranco2.x,bispoBranco2.y] = bispoBranco2;
+        this.Controls.Add(bispoBranco2.pictureBox);
+        bispoBranco2.pictureBox.BringToFront();
+        bispoBranco2.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(bispoBranco2); };
+
+        Cavalo cavaloBranco2 = new Cavalo(50,350,"cavalobranco.png");
+        tabuleiro[cavaloBranco2.x,cavaloBranco2.y] = cavaloBranco2;
+        this.Controls.Add(cavaloBranco2.pictureBox);
+        cavaloBranco2.pictureBox.BringToFront();
+        cavaloBranco2.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(cavaloBranco2); };
+
+         Torre torreBranca2 = new Torre(0,350,"torrebranca.png");
+        tabuleiro[torreBranca2.x,torreBranca2.y] = torreBranca2;
+        this.Controls.Add(torreBranca2.pictureBox);
+        torreBranca2.pictureBox.BringToFront();
+        torreBranca2.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(torreBranca2); };
+
 //aprender a botar do outro lado
 
 
        // peças pretas
-/*
-        Bispo bispoPreto = new bispo(250,50,"bispopreto.png");
+
+        Bispo bispoPreto = new Bispo(250,0,"bispopreto.png");
         tabuleiro[bispoPreto.x,bispoPreto.y] = bispoPreto;
         this.Controls.Add(bispoPreto.pictureBox);
         bispoPreto.pictureBox.BringToFront();
         bispoPreto.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(bispoPreto); };   
-            */
-
-        Cavalo cavaloPreto = new Cavalo(300,50,"cavalopreto.png");
+        
+        Cavalo cavaloPreto = new Cavalo(300,0,"cavalopreto.png");
         tabuleiro[cavaloPreto.x,cavaloPreto.y] = cavaloPreto;
         this.Controls.Add(cavaloPreto.pictureBox);
         cavaloPreto.pictureBox.BringToFront();
         cavaloPreto.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(cavaloPreto); };
 
-        Torre torrePreta = new Torre(350,50,"torrepreta.png");
+        Torre torrePreta = new Torre(350,0,"torrepreta.png");
         tabuleiro[torrePreta.x,torrePreta.y] = torrePreta;
         this.Controls.Add(torrePreta.pictureBox);
         torrePreta.pictureBox.BringToFront();
         torrePreta.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(torrePreta); };
+
+        Bispo bispoPreto2 = new Bispo(100,0,"bispopreto.png");
+        tabuleiro[bispoPreto2.x,bispoPreto2.y] = bispoPreto2;
+        this.Controls.Add(bispoPreto2.pictureBox);
+        bispoPreto2.pictureBox.BringToFront();
+        bispoPreto2.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(bispoPreto2); }; 
+
+        Cavalo cavaloPreto2 = new Cavalo(50,0,"cavalopreto.png");
+        tabuleiro[cavaloPreto2.x,cavaloPreto2.y] = cavaloPreto2;
+        this.Controls.Add(cavaloPreto2.pictureBox);
+        cavaloPreto2.pictureBox.BringToFront();
+        cavaloPreto2.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(cavaloPreto2); };
+
+        Torre torrePreta2 = new Torre(0,0,"torrepreta.png");
+        tabuleiro[torrePreta2.x,torrePreta2.y] = torrePreta2;
+        this.Controls.Add(torrePreta2.pictureBox);
+        torrePreta2.pictureBox.BringToFront();
+        torrePreta2.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(torrePreta2); };
+     // peos 
+     
+        Peao peaoBranco1 = new Peao(0,50,"peaobranco.png");
+        tabuleiro[peaoBranco1.x,peaoBranco1.y] = peaoBranco1;
+        this.Controls.Add(peaoBranco1.pictureBox);
+        peaoBranco1.pictureBox.BringToFront();
+        peaoBranco1.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco1); };
+        
     }
      #endregion
 
