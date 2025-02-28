@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\20231170150009\\Documents\\GitHub\\poo-xadrez\\trabalho cod\\trabalho cod.csproj": {}
+    "D:\\Users\\20231170150009\\Documents\\GitHub\\poo-xadrez\\trabalho cod\\trabalho cod.csproj": {}
   },
   "projects": {
-    "C:\\Users\\20231170150009\\Documents\\GitHub\\poo-xadrez\\trabalho cod\\trabalho cod.csproj": {
+    "D:\\Users\\20231170150009\\Documents\\GitHub\\poo-xadrez\\trabalho cod\\trabalho cod.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\20231170150009\\Documents\\GitHub\\poo-xadrez\\trabalho cod\\trabalho cod.csproj",
+        "projectUniqueName": "D:\\Users\\20231170150009\\Documents\\GitHub\\poo-xadrez\\trabalho cod\\trabalho cod.csproj",
         "projectName": "trabalho cod",
-        "projectPath": "C:\\Users\\20231170150009\\Documents\\GitHub\\poo-xadrez\\trabalho cod\\trabalho cod.csproj",
-        "packagesPath": "C:\\Users\\20231170150009\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\20231170150009\\Documents\\GitHub\\poo-xadrez\\trabalho cod\\obj\\",
+        "projectPath": "D:\\Users\\20231170150009\\Documents\\GitHub\\poo-xadrez\\trabalho cod\\trabalho cod.csproj",
+        "packagesPath": "D:\\Users\\20231170150009\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\20231170150009\\Documents\\GitHub\\poo-xadrez\\trabalho cod\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\20231170150009\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "D:\\Users\\20231170150009\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"

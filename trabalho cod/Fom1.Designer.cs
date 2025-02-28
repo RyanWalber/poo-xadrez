@@ -35,17 +35,30 @@ partial class Form1
     }
 
     public void InicializarTabuleiro()
+{
+    for (int i = 0; i < 8; i++)
     {
-        
-        for(int i = 0; i < 8 ;i++){
-            for(int j = 0; j<8 ;j++){
-                int x = j, y = i;
-                 tabuleiro[x,y] = new CasaVazia(x*50, y*50,"casaVazia.png");
-                 this.Controls.Add(tabuleiro[x,y].pictureBox);
-                 tabuleiro[x,y].pictureBox.BringToFront();
-                 tabuleiro[x,y].pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(tabuleiro[x,y]); };
-            }   
+        for (int j = 0; j < 8; j++)
+        {
+            int x = j, y = i;
+            tabuleiro[x, y] = new CasaVazia(x * 50, y * 50, "casaVazia.png");
+            this.Controls.Add(tabuleiro[x, y].pictureBox);
+            tabuleiro[x, y].pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(tabuleiro[x, y]); };
+
+            // Alternando cores tipo tabuleiro de xadrez
+            if ((i + j) % 2 == 0)
+            {
+                tabuleiro[x, y].pictureBox.BackColor = Color.Green; // Casa verde
+            }
+            else
+            {
+                tabuleiro[x, y].pictureBox.BackColor = Color.Red; // Casa vermelha
+            }
+
+            tabuleiro[x, y].pictureBox.SendToBack(); // Deixa o tabuleiro atrás das peças
         }
+    }
+
        
 /*
        public void InicializarTabuleiro()
@@ -178,14 +191,105 @@ partial class Form1
         this.Controls.Add(torrePreta2.pictureBox);
         torrePreta2.pictureBox.BringToFront();
         torrePreta2.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(torrePreta2); };
-     // peos 
-     /*
-        Peao peaoBranco1 = new Peao(0,50,"peaobranco.png");
-        tabuleiro[peaoBranco1.x,peaoBranco1.y] = peaoBranco1;
-        this.Controls.Add(peaoBranco1.pictureBox);
-        peaoBranco1.pictureBox.BringToFront();
-        peaoBranco1.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco1); };
-        */
+     // Peões Pretos
+Peao peaoPreto1 = new Peao(0, 50, "peaopreto.png");
+tabuleiro[peaoPreto1.x, peaoPreto1.y] = peaoPreto1;
+this.Controls.Add(peaoPreto1.pictureBox);
+peaoPreto1.pictureBox.BringToFront();
+peaoPreto1.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoPreto1); };
+
+Peao peaoPreto2 = new Peao(50, 50, "peaopreto.png");
+tabuleiro[peaoPreto2.x, peaoPreto2.y] = peaoPreto2;
+this.Controls.Add(peaoPreto2.pictureBox);
+peaoPreto2.pictureBox.BringToFront();
+peaoPreto2.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoPreto2); };
+
+Peao peaoPreto3 = new Peao(100, 50, "peaopreto.png");
+tabuleiro[peaoPreto3.x, peaoPreto3.y] = peaoPreto3;
+this.Controls.Add(peaoPreto3.pictureBox);
+peaoPreto3.pictureBox.BringToFront();
+peaoPreto3.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoPreto3); };
+
+Peao peaoPreto4 = new Peao(150, 50, "peaopreto.png");
+tabuleiro[peaoPreto4.x, peaoPreto4.y] = peaoPreto4;
+this.Controls.Add(peaoPreto4.pictureBox);
+peaoPreto4.pictureBox.BringToFront();
+peaoPreto4.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoPreto4); };
+
+Peao peaoPreto5 = new Peao(200, 50, "peaopreto.png");
+tabuleiro[peaoPreto5.x, peaoPreto5.y] = peaoPreto5;
+this.Controls.Add(peaoPreto5.pictureBox);
+peaoPreto5.pictureBox.BringToFront();
+peaoPreto5.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoPreto5); };
+
+Peao peaoPreto6 = new Peao(250, 50, "peaopreto.png");
+tabuleiro[peaoPreto6.x, peaoPreto6.y] = peaoPreto6;
+this.Controls.Add(peaoPreto6.pictureBox);
+peaoPreto6.pictureBox.BringToFront();
+peaoPreto6.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoPreto6); };
+
+Peao peaoPreto7 = new Peao(300, 50, "peaopreto.png");
+tabuleiro[peaoPreto7.x, peaoPreto7.y] = peaoPreto7;
+this.Controls.Add(peaoPreto7.pictureBox);
+peaoPreto7.pictureBox.BringToFront();
+peaoPreto7.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoPreto7); };
+
+Peao peaoPreto8 = new Peao(350, 50, "peaopreto.png");
+tabuleiro[peaoPreto8.x, peaoPreto8.y] = peaoPreto8;
+this.Controls.Add(peaoPreto8.pictureBox);
+peaoPreto8.pictureBox.BringToFront();
+peaoPreto8.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoPreto8); };
+
+// Peões Brancos
+Peao peaoBranco1 = new Peao(0, 300, "peaobranco.png");
+tabuleiro[peaoBranco1.x, peaoBranco1.y] = peaoBranco1;
+this.Controls.Add(peaoBranco1.pictureBox);
+peaoBranco1.pictureBox.BringToFront();
+peaoBranco1.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco1); };
+
+Peao peaoBranco2 = new Peao(50, 300, "peaobranco.png");
+tabuleiro[peaoBranco2.x, peaoBranco2.y] = peaoBranco2;
+this.Controls.Add(peaoBranco2.pictureBox);
+peaoBranco2.pictureBox.BringToFront();
+peaoBranco2.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco2); };
+
+Peao peaoBranco3 = new Peao(100, 300, "peaobranco.png");
+tabuleiro[peaoBranco3.x, peaoBranco3.y] = peaoBranco3;
+this.Controls.Add(peaoBranco3.pictureBox);
+peaoBranco3.pictureBox.BringToFront();
+peaoBranco3.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco3); };
+
+Peao peaoBranco4 = new Peao(150, 300, "peaobranco.png");
+tabuleiro[peaoBranco4.x, peaoBranco4.y] = peaoBranco4;
+this.Controls.Add(peaoBranco4.pictureBox);
+peaoBranco4.pictureBox.BringToFront();
+peaoBranco4.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco4); };
+
+Peao peaoBranco5 = new Peao(200, 300, "peaobranco.png");
+tabuleiro[peaoBranco5.x, peaoBranco5.y] = peaoBranco5;
+this.Controls.Add(peaoBranco5.pictureBox);
+peaoBranco5.pictureBox.BringToFront();
+peaoBranco5.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco5); };
+
+Peao peaoBranco6 = new Peao(250, 300, "peaobranco.png");
+tabuleiro[peaoBranco6.x, peaoBranco6.y] = peaoBranco6;
+this.Controls.Add(peaoBranco6.pictureBox);
+peaoBranco6.pictureBox.BringToFront();
+peaoBranco6.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco6); };
+
+Peao peaoBranco7 = new Peao(300, 300, "peaobranco.png");
+tabuleiro[peaoBranco7.x, peaoBranco7.y] = peaoBranco7;
+this.Controls.Add(peaoBranco7.pictureBox);
+peaoBranco7.pictureBox.BringToFront();
+peaoBranco7.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco7); };
+
+Peao peaoBranco8 = new Peao(350, 300, "peaobranco.png");
+tabuleiro[peaoBranco8.x, peaoBranco8.y] = peaoBranco8;
+this.Controls.Add(peaoBranco8.pictureBox);
+peaoBranco8.pictureBox.BringToFront();
+peaoBranco8.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco8); };
+       
+        
     }
      #endregion
 
