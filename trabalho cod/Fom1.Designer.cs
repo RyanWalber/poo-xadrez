@@ -2,15 +2,10 @@ namespace xadrez;
 
 partial class Form1
 {
-    /// <summary>
-    ///  Required designer variable.
-    /// </summary>
+    
     private System.ComponentModel.IContainer components = null;
 
-    /// <summary>
-    ///  Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+   
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -45,49 +40,22 @@ partial class Form1
             this.Controls.Add(tabuleiro[x, y].pictureBox);
             tabuleiro[x, y].pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(tabuleiro[x, y]); };
 
-            // Alternando cores tipo tabuleiro de xadrez
+           
             if ((i + j) % 2 == 0)
             {
-                tabuleiro[x, y].pictureBox.BackColor = Color.Green; // Casa verde
+                tabuleiro[x, y].pictureBox.BackColor = Color.Green; 
             }
             else
             {
-                tabuleiro[x, y].pictureBox.BackColor = Color.Red; // Casa vermelha
+                tabuleiro[x, y].pictureBox.BackColor = Color.Red;
             }
 
-            tabuleiro[x, y].pictureBox.SendToBack(); // Deixa o tabuleiro atrás das peças
+            tabuleiro[x, y].pictureBox.SendToBack();
         }
     }
 
        
-/*
-       public void InicializarTabuleiro()
-{
-    for (int i = 0; i < 8; i++)
-    {
-        for (int j = 0; j < 8; j++)
-        {
-            int x = j, y = i;
-            tabuleiro[x, y] = new CasaVazia(x * 50, y * 50, "");
 
-            // Definindo cor alternada para as casas
-            if ((x + y) % 2 == 0)
-            {
-                tabuleiro[x, y].pictureBox.BackColor = Color.Green; // Casas verdes
-            }
-            else
-            {
-                tabuleiro[x, y].pictureBox.BackColor = Color.Red; // Casas vermelhas
-            }
-
-            this.Controls.Add(tabuleiro[x, y].pictureBox);
-            tabuleiro[x, y].pictureBox.BringToFront();
-            tabuleiro[x, y].pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(tabuleiro[x, y]); };
-        }
-    }
-} // <- Aqui estava faltando a chave
-
-*/
 
 
         // Reis e Rainhas
@@ -151,7 +119,7 @@ partial class Form1
         torreBranca2.pictureBox.BringToFront();
         torreBranca2.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(torreBranca2); };
 
-//aprender a botar do outro lado
+
 
 
        // peças pretas
@@ -294,3 +262,4 @@ peaoBranco8.pictureBox.Click += (sender, args) => { cliqueNoTabuleiro(peaoBranco
      #endregion
 
 }
+
